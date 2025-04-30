@@ -39,17 +39,17 @@ export class SqlGenerateComponent {
       contents: [
         {
           parts: [{ text: `
-Eres un generador de interfaces visuales. A partir de la siguiente estructura de base de datos en SQL:
+            Eres un generador de interfaces visuales. A partir de la siguiente estructura de base de datos en SQL:
 
-${this.prompt}
+            ${this.prompt}
 
-Devuélveme solo el HTML estructurado listo para GrapesJS (sin <html> ni <body>) y el CSS dentro de una etiqueta <style>.
-Importante:
-- Los formularios deben tener la etiqueta <form>.
-- Los botones de guardado deben ser <button type="submit">Guardar</button>.
-- Cada <input> debe tener un atributo name correspondiente a la columna.
-- No expliques nada, solo da el HTML y CSS limpio.
-Responde solo el código, sin explicaciones ni comentarios.
+            Devuélveme solo el HTML estructurado listo para GrapesJS (sin <html> ni <body>) y el CSS dentro de una etiqueta <style>.
+            Importante:
+            - Los formularios deben tener la etiqueta <form>.
+            - Los botones de guardado deben ser <button type="submit">Guardar</button>.
+            - Cada <input> debe tener un atributo name correspondiente a la columna.
+            - No expliques nada, solo da el HTML y CSS limpio.
+            Responde solo el código, sin explicaciones ni comentarios.
           ` }]
         }
       ]

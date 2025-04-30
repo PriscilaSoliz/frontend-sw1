@@ -6,7 +6,7 @@ import { io } from 'socket.io-client';
 })
 export class WebSocketService {
     socket: any;
-    readonly uri: string = 'http://localhost:3000'; // URL de tu backend
+    readonly uri: string = 'https://backend-sw1-production-0365.up.railway.app'; // URL de tu backend
 
     constructor() {
         this.socket = io(this.uri);
