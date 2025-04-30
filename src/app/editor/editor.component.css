@@ -138,3 +138,40 @@
         display: flex;
         justify-content: space-between;
     }
+
+    .xmi-modal-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .xmi-modal {
+        background: #fff;
+        border-radius: 12px;
+        padding: 2rem;
+        width: 400px;
+        max-width: 90%;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        z-index: 10000;
+    }
+
+    .xmi-modal input[type="file"] {
+        margin-top: 1rem;
+    }
+
+    .modal-buttons {
+        margin-top: 1.5rem;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+      

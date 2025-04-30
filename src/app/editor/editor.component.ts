@@ -7,14 +7,16 @@ import { SalaService } from '../services/sala.service';
 import { WebSocketService } from '../services/websocket.service';
 import { ChatGeminiComponent } from '../components/chat-gemini/chat-gemini.component';
 import { SqlGenerateComponent } from '../components/sql-generate/sql-generate.component';
+import { NavbarComponent } from '../components/navbar/navbar.component';
 import { loadBlocks } from './blocks';
+import { GeminiService } from '../services/gemini.service';
 
 @Component({
   selector: 'app-editor',
   standalone: true,
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.css'],
-  imports: [CommonModule, ChatGeminiComponent, SqlGenerateComponent],
+  imports: [CommonModule, ChatGeminiComponent, SqlGenerateComponent, NavbarComponent],
 })
 export class EditorComponent implements AfterViewInit {
   @ViewChild(ChatGeminiComponent) chatGeminiComponent!: ChatGeminiComponent;
@@ -28,11 +30,15 @@ export class EditorComponent implements AfterViewInit {
   cssExportado = '';
   tsExportado = '';
   modalExportarAbierto = false;
+  modalXmiAbierto = false;
+  cargandoGeminiXMI = false; // Spinner
+  mensajeGemini = '';
 
   constructor(
     private route: ActivatedRoute,
     private salaService: SalaService,
-    private webSocketService: WebSocketService
+    private webSocketService: WebSocketService,
+    private geminiService: GeminiService
   ) {}
 
   ngAfterViewInit(): void {
@@ -159,8 +165,7 @@ export class EditorComponent implements AfterViewInit {
     console.log('📤 Enviando actualización:', data);
     this.webSocketService.enviarContenido(this.idSala, JSON.stringify(data));
   }
-  
-  
+   
   enviarEliminacion(model: any) {
     const data = {
       tipo: 'delete',
@@ -276,5 +281,90 @@ export class EditorComponent implements AfterViewInit {
       .split('-')
       .map(p => p.charAt(0).toUpperCase() + p.slice(1))
       .join('');
+  }
+
+  /*---------EXPORTAR A XMI O XML */
+  procesarXMI(event: any) {
+    const file = event.target.files[0];
+    if (!file) return;
+  
+    const reader = new FileReader();
+    reader.onload = async (e: any) => {
+      const contenidoXML = e.target.result;
+      this.cargandoGeminiXMI = true;
+      this.mensajeGemini = 'Enviando archivo a Gemini...';
+  
+      try {
+        const prompt = `
+          Eres un experto en front-end y estás ayudando a convertir diagramas XMI en diseños web.
+          Eres un asistente experto en Angular. Se te proporciona un archivo XMI que representa un modelo de base de datos generado en Enterprise Architect. Quiero que generes a partir de ese XMI un diseño web CRUD funcional utilizando HTML y CSS compatible con Angular. Este diseño debe contener formularios, inputs, botones y estructura visual editable en un editor como GrapesJS. No generes el diseño como un diagrama UML, sino como una interfaz visual de formulario web moderna, con estilo limpio y organizado.
+          
+          <xml>
+          ${contenidoXML}
+          </xml>
+          Solo responde con el contenido de <body> y <style> para que sea fácil insertarlo al canvas. No incluyas etiquetas <html> ni <head>.
+          No expliques nada, solo da el HTML y CSS limpio.  
+          `;
+        // 👉 Suponiendo que tienes GeminiService ya configurado:
+        const respuesta = await this.geminiService.enviarPrompt(prompt);
+        const { html, css } = this.extraerHtmlCss(respuesta);
+        console.log('📦 Respuesta de Gemini:', respuesta); /*---- */
+        this.editor.addComponents(`
+          <style>${css}</style>
+          ${html}
+        `);
+        this.mensajeGemini = '✅ Diseño generado con éxito.';
+      } catch (err) {
+        console.error('Error al procesar con Gemini:', err);
+        this.mensajeGemini = '❌ Error al procesar el archivo.';
+      } finally {
+        this.cargandoGeminiXMI = false;
+        this.cerrarModalXMI();
+      }
+    };
+    reader.readAsText(file);
+  }
+  
+
+  convertirXMIaEditor(xmlString: string) {
+    const parser = new DOMParser();
+    const xml = parser.parseFromString(xmlString, 'text/xml');
+  
+    const tablas = Array.from(xml.getElementsByTagName('table'));
+  
+    tablas.forEach((tabla: any) => {
+      const nombreTabla = tabla.getAttribute('name');
+      const columnas = Array.from(tabla.getElementsByTagName('column')).map((col: any) =>
+        col.getAttribute('name')
+      );
+  
+      // Crear bloque visual simulado (ajústalo a tu editor específico)
+      const html = `
+        <div class="tabla-sql">
+          <h3>${nombreTabla}</h3>
+          <ul>${columnas.map(col => `<li>${col}</li>`).join('')}</ul>
+        </div>
+      `;
+  
+      this.editor.addComponents(html);
+    });
+  }
+
+  extraerHtmlCss(respuesta: string): { html: string, css: string } {
+    const bodyMatch = respuesta.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+    const cssMatch = respuesta.match(/<style[^>]*>([\s\S]*?)<\/style>/i);
+  
+    return {
+      html: bodyMatch ? bodyMatch[1].trim() : '',
+      css: cssMatch ? cssMatch[1].trim() : ''
+    };
+  }
+  
+  abrirModalXMI() {
+    this.modalXmiAbierto = true;
+  }
+  
+  cerrarModalXMI() {
+    this.modalXmiAbierto = false;
   }
 }

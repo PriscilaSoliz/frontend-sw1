@@ -32,7 +32,7 @@ export function loadBlocks(bm: any) {
       `
     });
   
-    // 📦 Otros elementos (que ya tenías)
+    // Otros elementos
     bm.add('input-text', {
       label: 'Campo Texto',
       category: 'Formulario - Entradas',

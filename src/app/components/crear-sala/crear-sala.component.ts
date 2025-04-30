@@ -3,13 +3,15 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { SalaService } from '../../services/sala.service';
+import { NavbarComponent } from '../navbar/navbar.component';
+
 
 @Component({
   selector: 'app-crear-sala',
   standalone: true,
   templateUrl: './crear-sala.component.html',
   styleUrls: ['./crear-sala.component.css'],
-  imports: [CommonModule, FormsModule, RouterLink]
+  imports: [CommonModule, FormsModule, RouterLink, NavbarComponent]
 })
 export class CrearSalaComponent implements OnInit {
   salas: any[] = [];

@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="toolbar">
     <button (click)="editor.runCommand('core:undo')">↩️ Deshacer</button>
     <button (click)="editor.runCommand('core:redo')">↪️ Rehacer</button>
@@ -5,7 +6,7 @@
     <button (click)="abrirModalGemini()">🖼️ Generar desde Imagen</button>
     <button (click)="abrirModalSql()">🛠️ Generar desde SQL</button> 
     <button (click)="abrirModalExportar()">📦 Exportar Angular</button>
-
+    <button (click)="abrirModalXMI()">🗂️ Subir Diagrama XMI</button>
 </div>
 
 <!-- Resto igual -->
@@ -42,3 +43,15 @@
         </div>
     </div>
 </div> 
+
+<div class="xmi-modal-backdrop" *ngIf="modalXmiAbierto">
+    <div class="xmi-modal">
+        <h2>🗂️ Subir Diagrama XMI</h2>
+        <input type="file" (change)="procesarXMI($event)" accept=".xmi,.xml">
+        <div class="modal-buttons">
+            <button (click)="cerrarModalXMI()">❌ Cancelar</button>
+        </div>
+        <div *ngIf="cargandoGeminiXMI">⏳ Procesando XMI con Gemini...</div>
+        <div *ngIf="mensajeGemini">{{ mensajeGemini }}</div>
+    </div>
+</div>

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
+
 
 @Injectable({
     providedIn: 'root'
@@ -14,16 +16,24 @@ export class GeminiService {
 
     enviarPreguntaConImagen(pregunta: string, imagenBase64: string): Observable<any> {
         const body = {
-            contents: [
-            {
+            contents: [{
                 parts: [
-                { text: pregunta },
-                { inlineData: { mimeType: 'image/png', data: imagenBase64.split(',')[1] } }
+                    { text: pregunta },
+                    { inlineData: { mimeType: 'image/png', data: imagenBase64.split(',')[1] } }
                 ]
-            }
-            ]
+            }]
         };
-    
         return this.http.post(`${this.API_URL}?key=${this.API_KEY}`, body);
     }
+
+    async enviarPrompt(prompt: string): Promise<string> {
+        const body = {
+          contents: [{ parts: [{ text: prompt }] }]
+        };
+        const response: any = await firstValueFrom(
+          this.http.post(`${this.API_URL}?key=${this.API_KEY}`, body)
+        );
+        return response.candidates[0]?.content?.parts[0]?.text || '';
+    }
 }
+

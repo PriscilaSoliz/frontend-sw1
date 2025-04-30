@@ -22,8 +22,10 @@ export class LoginComponent {
   login() {
     this.authService.login({ email: this.email, password: this.password }).subscribe(
       (res) => {
+        console.log('Respuesta del login:', res);
         this.authService.saveToken(res.token);
-        this.router.navigate(['/profile']);
+        localStorage.setItem('user', JSON.stringify(res.user));
+        this.router.navigate(['/crear-sala']);
       },
       (err) => {
         console.error('Error en login', err);

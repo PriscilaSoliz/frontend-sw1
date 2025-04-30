@@ -1,0 +1,11 @@
+<nav class="navbar">
+    <div class="navbar-left">
+      <span class="navbar-logo">ColabEditor</span>
+    </div>
+  
+    <div class="navbar-right">
+      <span class="navbar-user">👋 Bienvenido, {{ usuario?.name || 'Usuario' }}</span>
+      <button (click)="logout()" class="btn-logout">Cerrar Sesión</button>
+    </div>
+  </nav>
+  
