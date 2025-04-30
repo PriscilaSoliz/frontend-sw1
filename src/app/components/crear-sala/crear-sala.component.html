@@ -1,0 +1,62 @@
+<div class="pagina-container">
+    <!-- 📂 Columna izquierda: Listado de salas -->
+    <div class="salas-container">
+        <h2>Salas Existentes</h2>
+        <div *ngFor="let sala of salas" class="sala-card">
+            <h3>{{ sala.nombre }}</h3>
+            <p>{{ sala.descripcion }}</p>
+            <h3>
+                {{ sala.nombre }}
+                <span *ngIf="sala.tipo_sala === 'propia'" title="Tu sala">👑</span>
+                <span *ngIf="sala.tipo_sala === 'invitada'" title="Te invitaron">👥</span>
+            </h3>
+            <div class="botones-sala">
+                <button (click)="irADiseno(sala.id)" class="btn-diseno">Diseñar</button>
+                <button (click)="eliminarSala(sala.id)" class="btn-delete">Eliminar</button>
+                <button (click)="administrarSala(sala.id)" class="btn-administrar">
+                    {{ salaEnAdministracionId === sala.id ? 'Cerrar Administración' : 'Administrar Sala' }}
+                </button>
+            </div>
+    
+            <!-- 🔵 Área de invitaciones -->
+            <div *ngIf="salaEnAdministracionId === sala.id" class="invitacion-container">
+            <h4>Invitar Usuario</h4>
+    
+            <input type="text" [(ngModel)]="usuarioBuscar" placeholder="Buscar email o nombre" class="input-buscar">
+            <button (click)="buscarUsuarios()" class="btn-buscar">Buscar</button>
+    
+            <ul *ngIf="usuariosDisponibles.length > 0" class="lista-usuarios">
+                <li *ngFor="let usuario of usuariosDisponibles">
+                {{ usuario.name }} ({{ usuario.email }})
+                <button (click)="invitarUsuario(usuario.id)" class="btn-invitar">Invitar</button>
+                </li>
+            </ul>
+    
+            <h4>Usuarios Invitados</h4>
+            <ul *ngIf="usuariosInvitados.length > 0" class="lista-invitados">
+                <li *ngFor="let invitado of usuariosInvitados">
+                {{ invitado.name }} ({{ invitado.email }})
+                <button (click)="eliminarUsuarioInvitado(invitado.id)" class="btn-eliminar">Eliminar</button>
+                </li>
+            </ul>
+            </div>
+        </div>
+        </div>
+    
+        <!-- 📝 Columna derecha: Crear nueva sala -->
+        <div class="crear-sala-container">
+        <h2>Crear Nueva Sala</h2>
+        <form (ngSubmit)="crearSala()">
+            <div class="form-group">
+            <label>Nombre:</label>
+            <input type="text" [(ngModel)]="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+            <label>Descripción:</label>
+            <textarea [(ngModel)]="descripcion" name="descripcion" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn-crear">Crear Sala</button>
+        </form>
+    </div>
+</div>
+  

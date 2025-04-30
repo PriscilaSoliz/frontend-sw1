@@ -1,0 +1,193 @@
+    /* 📦 Contenedor general */
+    .pagina-container {
+        display: flex;
+        gap: 40px;
+        padding: 40px;
+        background: #f8f9fa;
+        min-height: 100vh;
+        font-family: 'Inter', sans-serif;
+    }
+    
+    /* 📂 Columna de Salas */
+    .salas-container {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    /* 📝 Tarjeta de cada sala */
+    .sala-card {
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        border: 1px solid #e9ecef;
+    }
+    
+    .sala-card h3 {
+        font-size: 20px;
+        font-weight: 600;
+        color: #212529;
+        margin-bottom: 10px;
+    }
+    
+    .sala-card p {
+        font-size: 14px;
+        color: #6c757d;
+        margin-bottom: 15px;
+    }
+    
+    /* 🎛️ Botones en cada sala */
+    .botones-sala {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    
+    button {
+        padding: 10px 18px;
+        border: none;
+        border-radius: 8px;
+        font-weight: 500;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-diseno {
+        background-color: #4a90e2;
+        color: white;
+    }
+    
+    .btn-diseno:hover {
+        background-color: #357ABD;
+    }
+    
+    .btn-delete {
+        background-color: #e24a4a;
+        color: white;
+    }
+
+    .btn-delete:hover {
+        background-color: #bd3535;
+    }
+
+    .btn-administrar {
+        background-color: #6c757d;
+        color: white;
+    }
+    
+    .btn-administrar:hover {
+        background-color: #5a6268;
+    }
+    
+    /* 🧹 Contenedor de invitaciones */
+    .invitacion-container {
+        margin-top: 20px;
+        padding: 20px;
+        background: #f8f9fa;
+        border-radius: 10px;
+        border: 1px solid #e9ecef;
+    }
+    
+    .input-buscar {
+        width: 100%;
+        padding: 10px 14px;
+        margin-bottom: 12px;
+        border-radius: 8px;
+        border: 1px solid #ced4da;
+        background-color: #ffffff;
+        font-size: 14px;
+    }
+    
+    .lista-usuarios, .lista-invitados {
+        list-style: none;
+        padding: 0;
+        margin-top: 10px;
+    }
+    
+    .lista-usuarios li, .lista-invitados li {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .btn-invitar, .btn-buscar, .btn-eliminar {
+        background-color: #6c757d;
+        color: white;
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .btn-invitar:hover, .btn-buscar:hover, .btn-eliminar:hover {
+        background-color: #5a6268;
+    }
+    
+    /* 📝 Columna Crear Nueva Sala */
+    .crear-sala-container {
+        flex: 1;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        align-self: flex-start;
+    }
+    
+    .crear-sala-container h2 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #212529;
+    }
+    
+    /* Estilo de Formulario */
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .crear-sala-container label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        font-size: 14px;
+        color: #495057;
+    }
+    
+    .crear-sala-container input[type="text"],
+    .crear-sala-container textarea {
+        width: 100%;
+        padding: 10px 14px;
+        border-radius: 8px;
+        border: 1px solid #ced4da;
+        background-color: #f8f9fa;
+        font-size: 14px;
+        color: #495057;
+        transition: border-color 0.3s ease;
+    }
+    
+    .crear-sala-container input[type="text"]:focus,
+    .crear-sala-container textarea:focus {
+        outline: none;
+        border-color: #4a90e2;
+        background-color: #ffffff;
+    }
+    
+    /* Botón Crear */
+    .btn-crear {
+        background-color: #4a90e2;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 15px;
+        width: 100%;
+        transition: background-color 0.3s ease;
+        margin-top: 15px;
+    }
+    
+    .btn-crear:hover {
+        background-color: #357ABD;
+    }
+    

@@ -1,0 +1,25 @@
+    <div class="modal" [class.show]="modalAbierto">
+        <div class="modal-content">
+    
+        <span class="close" (click)="cerrarModal()">&times;</span>
+    
+        <h2>Generar Diseño desde Imagen 📸</h2>
+    
+        <label for="fileInput" class="upload-label">
+            📁 Seleccionar Imagen
+        </label>
+        <input id="fileInput" type="file" (change)="onFileChange($event)" accept="image/*" class="hidden-file">
+    
+        <div *ngIf="previewUrl" class="preview-container">
+            <div>
+                <img [src]="previewUrl" alt="Vista previa" class="preview-image">
+            </div>
+            <button (click)="enviar()" [disabled]="!imagen" class="btn-enviar">
+                🚀 Generar Diseño
+            </button>
+            
+            <div *ngIf="cargando" class="spinner"></div>
+        </div>
+        </div>
+    </div>
+    

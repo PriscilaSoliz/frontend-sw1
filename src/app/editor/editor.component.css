@@ -1,0 +1,140 @@
+    /* 🎨 ESTRUCTURA PRINCIPAL */
+    .editor-wrapper {
+        display: flex;
+        height: 100vh;
+        background: #f5f6fa;
+    }
+    
+    /* 🧱 PANEL IZQUIERDO (Blocks) */
+    #blocks {
+        width: 260px;
+        background: #2c3e50;
+        color: white;
+        overflow-y: auto;
+        padding: 10px;
+        border-right: 2px solid #34495e;
+    }
+    
+    #blocks .gjs-block {
+        margin-bottom: 10px;
+        background: #34495e;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    
+    #blocks .gjs-block:hover {
+        background: #1abc9c;
+    }
+    
+    /* 🧩 CANVAS CENTRAL (GrapesJS) */
+    .main-canvas {
+        flex: 1;
+        background: white;
+        overflow: auto;
+        padding: 20px;
+        border-left: 2px solid #ddd;
+        border-right: 2px solid #ddd;
+    }
+    
+    /* ⚙️ PANEL DERECHO (Estilos y Capas) */
+    .panel-side {
+        width: 320px;
+        background: #ecf0f1;
+        overflow-y: auto;
+        padding: 10px;
+    }
+    
+    .panel {
+        margin-bottom: 20px;
+        background: white;
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    
+    /* 🎯 SUBPANELES */
+    #layers, #styles, #traits, #selectors {
+        margin-bottom: 15px;
+    }
+    
+    /* 🛠️ BARRA SUPERIOR (Botones de acción) */
+    .toolbar {
+        background-color: #3498db;
+        color: white;
+        padding: 10px;
+        display: flex;
+        gap: 10px;
+    }
+    
+    .toolbar button {
+        background: white;
+        color: #3498db;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s;
+    }
+    
+    .toolbar button:hover {
+        background: #2980b9;
+        color: white;
+    }
+    
+    /* 🖥️ AJUSTES DEL CANVAS */
+    #gjs {
+        min-height: calc(100vh - 50px);
+        background: white;
+    }
+    
+    /* 🛡️ SCROLL CUSTOM */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background-color: #bbb;
+        border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    
+    .modal-exportar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+    }
+
+    .modal-content-exportar {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 800px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    textarea {
+        width: 100%;
+        height: 200px;
+        margin-bottom: 20px;
+        resize: vertical;
+        font-family: monospace;
+    }
+
+    .botones-modal {
+        display: flex;
+        justify-content: space-between;
+    }

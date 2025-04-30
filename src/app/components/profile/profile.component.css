@@ -1,0 +1,46 @@
+    * {
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .profile-container {
+        max-width: 500px;
+        margin: 80px auto;
+        padding: 40px;
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    
+    h2 {
+        margin-bottom: 25px;
+        color: #2c3e50;
+    }
+    
+    .profile-info {
+        text-align: left;
+        margin-bottom: 30px;
+    }
+    
+    .profile-info p {
+        margin: 10px 0;
+        font-size: 16px;
+        color: #34495e;
+    }
+    
+    .btn-logout {
+        width: 100%;
+        padding: 12px;
+        background-color: #e74c3c;
+        border: none;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    .btn-logout:hover {
+        background-color: #c0392b;
+    }
+    

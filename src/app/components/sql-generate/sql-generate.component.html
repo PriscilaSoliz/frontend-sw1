@@ -1,0 +1,20 @@
+    <div class="modal" *ngIf="modalAbierto">
+        <div class="modal-content">
+        <span class="close" (click)="cerrarModal()">&times;</span>
+        
+        <h2>Generar Diseño desde SQL 🛠️</h2>
+    
+        <form (ngSubmit)="enviarPrompt()" class="sql-form">
+            <label for="prompt">Describe la estructura en SQL:</label>
+            <textarea id="prompt" [(ngModel)]="prompt" name="prompt" rows="6" placeholder="Ejemplo: CREATE TABLE productos (id INT PRIMARY KEY, nombre VARCHAR(255));" required></textarea>
+            
+            <div class="botones">
+            <button type="submit" [disabled]="!prompt.trim()">🚀 Generar Diseño</button>
+            </div>
+            <div *ngIf="cargando" class="spinner">
+                Generando diseño...
+            </div>
+        </form>
+        </div>
+    </div>
+    

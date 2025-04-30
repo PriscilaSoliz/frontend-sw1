@@ -1,0 +1,44 @@
+<div class="toolbar">
+    <button (click)="editor.runCommand('core:undo')">↩️ Deshacer</button>
+    <button (click)="editor.runCommand('core:redo')">↪️ Rehacer</button>
+    <button (click)="guardarContenido()">💾 Guardar</button>
+    <button (click)="abrirModalGemini()">🖼️ Generar desde Imagen</button>
+    <button (click)="abrirModalSql()">🛠️ Generar desde SQL</button> 
+    <button (click)="abrirModalExportar()">📦 Exportar Angular</button>
+
+</div>
+
+<!-- Resto igual -->
+<div class="editor-wrapper">
+    <div id="blocks" class="panel blocks-panel"></div>
+    <div id="gjs" class="main-canvas"></div>
+    <div class="panel-side">
+        <div id="layers" class="panel layers-panel"></div>
+        <div id="styles" class="panel styles-panel"></div>
+        <div id="traits" class="panel traits-panel"></div>
+        <div id="selectors" class="panel selectors-panel"></div>
+    </div>
+</div>
+
+<app-chat-gemini *ngIf="editor" [editor]="editor"></app-chat-gemini>
+<app-sql-generate *ngIf="editor"></app-sql-generate>
+
+<div class="modal-exportar" *ngIf="modalExportarAbierto">
+    <div class="modal-content-exportar">
+        <h2>📦 Exportar Angular</h2>
+    
+        <h3>HTML</h3>
+        <textarea readonly [value]="htmlExportado"></textarea>
+    
+        <h3>CSS</h3>
+        <textarea readonly [value]="cssExportado"></textarea>
+    
+        <h3>TypeScript</h3>
+        <textarea readonly [value]="tsExportado"></textarea>
+    
+        <div class="botones-modal">
+            <button (click)="descargarArchivos()">⬇️ Descargar Archivos</button>
+            <button (click)="cerrarModalExportar()">❌ Cerrar</button>
+        </div>
+    </div>
+</div> 

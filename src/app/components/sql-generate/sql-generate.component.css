@@ -1,0 +1,67 @@
+    .modal {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+    }
+    
+    .modal-content {
+        background: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        width: 500px;
+        max-width: 90%;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        position: relative;
+    }
+    
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 24px;
+        cursor: pointer;
+    }
+    
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+    
+    .sql-form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .sql-form textarea {
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        resize: vertical;
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+    
+    .botones {
+        text-align: center;
+    }
+    
+    .botones button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    
+    .botones button:disabled {
+        background-color: #9E9E9E;
+        cursor: not-allowed;
+    }
+    
