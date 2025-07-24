@@ -11,7 +11,7 @@ export class AuthService {
   constructor() {}
 
   login(userData: { email: string, password: string }) {
-    return this.http.post<any>('https://backend-sw1-production-0365.up.railway.app/api/login', userData);
+    return this.http.post<any>('https://backend-sw1-ikh3.onrender.com/api/login', userData);
   }
 
   saveToken(token: string) {
@@ -19,7 +19,7 @@ export class AuthService {
   }
 
   register(userData: { name: string, email: string, password: string }) {
-    return this.http.post<any>('https://backend-sw1-production-0365.up.railway.app/api/register', userData);
+    return this.http.post<any>('https://backend-sw1-ikh3.onrender.com/api/register', userData);
   }
   
   getToken() {

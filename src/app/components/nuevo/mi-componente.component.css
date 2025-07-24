@@ -1,0 +1,289 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: rgb(240, 242, 245);
+  font-family: Arial, sans-serif;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+.content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 980px;
+  row-gap: 60px;
+  column-gap: 60px;
+  margin-top: -80px;
+}
+.left-section {
+  text-align: left;
+  max-width: 500px;
+  padding-right: 32px;
+}
+.facebook-logo {
+  color: rgb(24, 119, 242);
+  font-size: 60px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  margin-left: -20px;
+}
+.slogan-text {
+  font-size: 28px;
+  line-height: 32px;
+  color: rgb(28, 30, 33);
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.right-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-card {
+  background-color: rgb(255, 255, 255);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 8px 16px;
+  padding-top: 20px;
+  padding-right: 0px;
+  padding-bottom: 24px;
+  padding-left: 0px;
+  width: 396px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 16px;
+  column-gap: 16px;
+}
+.input-field {
+  width: 90%;
+  padding-top: 14px;
+  padding-right: 16px;
+  padding-bottom: 14px;
+  padding-left: 16px;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-top-color: rgb(221, 223, 226);
+  border-right-color: rgb(221, 223, 226);
+  border-bottom-color: rgb(221, 223, 226);
+  border-left-color: rgb(221, 223, 226);
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  font-size: 17px;
+  box-sizing: border-box;
+  outline-color: initial;
+  outline-style: none;
+  outline-width: initial;
+}
+.input-field::placeholder {
+  color: rgb(138, 141, 145);
+}
+.input-field:focus {
+  border-top-color: rgb(24, 119, 242);
+  border-right-color: rgb(24, 119, 242);
+  border-bottom-color: rgb(24, 119, 242);
+  border-left-color: rgb(24, 119, 242);
+  box-shadow: rgb(231, 243, 255) 0px 0px 0px 1px;
+}
+.login-button {
+  background-color: rgb(24, 119, 242);
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 14px;
+  padding-right: 16px;
+  padding-bottom: 14px;
+  padding-left: 16px;
+  border-top-width: initial;
+  border-right-width: initial;
+  border-bottom-width: initial;
+  border-left-width: initial;
+  border-top-style: none;
+  border-right-style: none;
+  border-bottom-style: none;
+  border-left-style: none;
+  border-top-color: initial;
+  border-right-color: initial;
+  border-bottom-color: initial;
+  border-left-color: initial;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  width: 90%;
+  cursor: pointer;
+  transition-behavior: normal;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-property: background-color;
+}
+.login-button:hover {
+  background-color: rgb(22, 111, 229);
+}
+.forgot-password {
+  color: rgb(24, 119, 242);
+  font-size: 14px;
+  text-decoration-line: none;
+  text-decoration-thickness: initial;
+  text-decoration-style: initial;
+  text-decoration-color: initial;
+  margin-top: 4px;
+}
+.forgot-password:hover {
+  text-decoration-line: underline;
+  text-decoration-thickness: initial;
+  text-decoration-style: initial;
+  text-decoration-color: initial;
+}
+.separator {
+  border-right-width: initial;
+  border-bottom-width: initial;
+  border-left-width: initial;
+  border-right-style: none;
+  border-bottom-style: none;
+  border-left-style: none;
+  border-right-color: initial;
+  border-bottom-color: initial;
+  border-left-color: initial;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: rgb(218, 221, 225);
+  width: 90%;
+  margin-top: 20px;
+  margin-right: 0px;
+  margin-bottom: 20px;
+  margin-left: 0px;
+}
+.create-account-button {
+  background-color: rgb(66, 183, 42);
+  color: rgb(255, 255, 255);
+  font-size: 17px;
+  font-weight: bold;
+  padding-top: 12px;
+  padding-right: 16px;
+  padding-bottom: 12px;
+  padding-left: 16px;
+  border-top-width: initial;
+  border-right-width: initial;
+  border-bottom-width: initial;
+  border-left-width: initial;
+  border-top-style: none;
+  border-right-style: none;
+  border-bottom-style: none;
+  border-left-style: none;
+  border-top-color: initial;
+  border-right-color: initial;
+  border-bottom-color: initial;
+  border-left-color: initial;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  cursor: pointer;
+  transition-behavior: normal;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-property: background-color;
+  width: auto;
+}
+.create-account-button:hover {
+  background-color: rgb(54, 164, 32);
+}
+.create-page-text {
+  font-size: 14px;
+  color: rgb(28, 30, 33);
+  margin-top: 28px;
+  text-align: center;
+  max-width: 320px;
+}
+.create-page-text .bold-link {
+  font-weight: bold;
+  color: rgb(28, 30, 33);
+  text-decoration-line: none;
+  text-decoration-thickness: initial;
+  text-decoration-style: initial;
+  text-decoration-color: initial;
+}
+.create-page-text .bold-link:hover {
+  text-decoration-line: underline;
+  text-decoration-thickness: initial;
+  text-decoration-style: initial;
+  text-decoration-color: initial;
+}
+@media (max-width: 980px) {
+  .content-wrapper {
+    flex-direction: column;
+    margin-top: 0px;
+    row-gap: 30px;
+    column-gap: 30px;
+  }
+  .left-section {
+    text-align: center;
+    padding-right: 0px;
+    max-width: 100%;
+  }
+  .facebook-logo {
+    font-size: 50px;
+    margin-left: 0px;
+  }
+  .slogan-text {
+    font-size: 24px;
+    padding-top: 0px;
+    padding-right: 20px;
+    padding-bottom: 0px;
+    padding-left: 20px;
+  }
+  .login-card {
+    width: 90%;
+    max-width: 396px;
+  }
+}
+@media (max-width: 480px) {
+  .login-card {
+    width: calc(100% - 40px);
+  }
+}

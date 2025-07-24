@@ -7,8 +7,10 @@ import { EditorComponent } from './editor/editor.component';
 import { CrearSalaComponent } from './components/crear-sala/crear-sala.component';
 import { ChatGeminiComponent } from './components/chat-gemini/chat-gemini.component';
 import { SqlGenerateComponent } from './components/sql-generate/sql-generate.component';
+import { MiComponenteComponent } from './components/nuevo/mi-componente.component';
 
 export const routes: Routes = [
+    { path: 'nuevo', component: MiComponenteComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'crear-sala', component: CrearSalaComponent },

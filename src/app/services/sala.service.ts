@@ -7,14 +7,14 @@ import { inject } from '@angular/core';
     providedIn: 'root'
 })
 export class SalaService {
-    private apiUrl = 'https://backend-sw1-production-0365.up.railway.app/api/salas';
+    private apiUrl = 'https://backend-sw1-ikh3.onrender.com/api/salas';
 
     private http = inject(HttpClient);
 
     // 🔵 Crear sala
     crearSala(nombre: string, descripcion: string) {
         const token = localStorage.getItem('token'); // 👈 el token que guardaste al loguear
-        return this.http.post('https://backend-sw1-production-0365.up.railway.app/api/salas', { nombre, descripcion }, {
+        return this.http.post('https://backend-sw1-ikh3.onrender.com/api/salas', { nombre, descripcion }, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -62,11 +62,11 @@ export class SalaService {
     }
 
     buscarUsuarios(texto: string) {
-        return this.http.get<any[]>(`https://backend-sw1-production-0365.up.railway.app/api/usuarios?search=${texto}`);
+        return this.http.get<any[]>(`https://backend-sw1-ikh3.onrender.com/api/usuarios?search=${texto}`);
     }
 
     obtenerMisSalas() {
-        return this.http.get<any[]>('https://backend-sw1-production-0365.up.railway.app/api/mis-salas', {
+        return this.http.get<any[]>('https://backend-sw1-ikh3.onrender.com/api/mis-salas', {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }
